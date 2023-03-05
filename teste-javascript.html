@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        /*const idLuz = "luz";
+        const idQuebrada = "quebrada";
+
+        function acendeLampada() {
+            document.getElementById(idLuz).src = "/src/_imagens/lampada-acesa.jpg";
+        }
+        function apagaLampada() {
+            document.getElementById(idLuz).src = "/src/_imagens/lampada-apagada.jpg";
+        }
+        function quebraLampada() {
+            document.getElementById(idLuz).src = "/src/_imagens/lampada-quebrada.jpg";
+            
+            document.getElementById(idLuz).id = idQuebrada; 
+        }
+        function trocaLampada() {
+            document.getElementById(idQuebrada).id = idLuz;
+            document.getElementById(idLuz).src = "/src/_imagens/lampada-apagada.jpg";
+        }*/
+        var quebrada = false;
+
+        function mudaLampada(tipo) {
+            if(!quebrada){
+                document.getElementById("luz").src = "/src/_imagens/" + tipo + ".jpg";
+
+                if (tipo == 'lampada-quebrada') {
+                    quebrada = true;
+                }
+            }
+        }
+
+        /* Trocar Lampada */
+        function trocaLampada() {
+            quebrada = false;
+            document.getElementById("luz").src = "/src/_imagens/lampada-apagada.jpg";
+        }
+    </script>
+    <style>
+        .button {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            margin: 0px 0px 0px 30px;
+            display: block;
+            border: none;
+        }
+
+        .button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            border: none;
+        }
+    </style>
+    <title>Teste JavaScript</title>
+</head>
+<body>
+    <h1>Acende a Lâmpada</h1>
+    <img src="/src/_imagens/lampada-apagada.jpg" alt="lampada-apagada" id="luz" onmousemove="mudaLampada('lampada-acesa')" onmouseout="mudaLampada('lampada-apagada')" onclick="mudaLampada('lampada-quebrada')">
+
+    <button class="button" type="submit" onclick="trocaLampada()">Troca Lampada</button>
+</body>
+</html>
